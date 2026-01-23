@@ -1,0 +1,51 @@
+# Entiers en Zig – Plages de valeurs (iN et uN)
+
+**Langage Zig** – Types entiers signés (`iN`) et non signés (`uN`)  
+Tailles de 1 à 64 bits – Valeurs exactes
+
+Date de référence : Zig 0.11 – 0.12 (2024–2025)
+
+## Entiers signés (iN)
+
+| Type   | Bits | Valeur minimale              | Valeur maximale             | Plage totale (valeurs) |
+|--------|------|------------------------------|-----------------------------|------------------------|
+| i1     | 1    | –1                           | 0                           | 2                      |
+| i2     | 2    | –2                           | 1                           | 4                      |
+| i4     | 4    | –8                           | 7                           | 16                     |
+| i8     | 8    | –128                         | 127                         | 256                    |
+| i16    | 16   | –32 768                      | 32 767                      | 65 536                 |
+| i24    | 24   | –8 388 608                   | 8 388 607                   | 16 777 216             |
+| i32    | 32   | –2 147 483 648               | 2 147 483 647               | 4 294 967 296          |
+| i48    | 48   | –140 737 488 355 328         | 140 737 488 355 327         | 281 474 976 710 656    |
+| i64    | 64   | –9 223 372 036 854 775 808   | 9 223 372 036 854 775 807   | 18 446 744 073 709 551 616 |
+
+Formule :  
+Min = –2^(N-1)  
+Max = 2^(N-1) – 1
+
+## Entiers non signés (uN)
+
+| Type   | Bits | Valeur minimale | Valeur maximale              | Plage totale (valeurs)     |
+|--------|------|-----------------|------------------------------|----------------------------|
+| u1     | 1    | 0               | 1                            | 2                          |
+| u2     | 2    | 0               | 3                            | 4                          |
+| u4     | 4    | 0               | 15                           | 16                         |
+| u8     | 8    | 0               | 255                          | 256                        |
+| u16    | 16   | 0               | 65 535                       | 65 536                     |
+| u24    | 24   | 0               | 16 777 215                   | 16 777 216                 |
+| u32    | 32   | 0               | 4 294 967 295                | 4 294 967 296              |
+| u48    | 48   | 0               | 281 474 976 710 655          | 281 474 976 710 656        |
+| u64    | 64   | 0               | 18 446 744 073 709 551 615   | 18 446 744 073 709 551 616 |
+
+Formule :  
+Min = 0  
+Max = 2^N – 1
+
+## Astuces rapides Zig
+
+- `i32` ≈ `int32_t` en C  
+- `u32` ≈ `uint32_t` en C  
+- `usize` / `isize` → taille dépend de l'architecture (32 ou 64 bits)  
+- Conversions explicites : `@intCast`, `@truncate`, `@bitCast`, `@as`
+
+Bonne programmation en Zig !  
